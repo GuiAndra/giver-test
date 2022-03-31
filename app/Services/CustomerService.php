@@ -6,8 +6,8 @@ use App\Imports\CustomersImport;
 
 class CustomerService
 {
-    public function importCSV($csv)
+    public function importCSV($csv, bool $force = false)
     {
-        \Excel::import(new CustomersImport, $csv);
+        \Excel::import(new CustomersImport($force), $csv);
     }
 }

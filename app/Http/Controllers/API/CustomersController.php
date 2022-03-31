@@ -38,6 +38,8 @@ class CustomersController extends Controller
      */
     public function import(CustomerImportRequest $request)
     {
-        $this->customerService->importCSV($request->file);
+        $force = $request->force ?: false;
+
+        $this->customerService->importCSV($request->file, $force);
     }
 }
