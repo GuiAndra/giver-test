@@ -35924,40 +35924,48 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _vm.showInputFile
-        ? _c(
-            "v-row",
+      _c(
+        "v-row",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showInputFile,
+              expression: "showInputFile",
+            },
+          ],
+        },
+        [
+          _c(
+            "v-col",
+            { attrs: { sm: "12", md: "4", "offset-md": "8" } },
             [
+              _c("v-file-input", {
+                attrs: {
+                  accept: ".csv",
+                  label: "Escolher arquivo...",
+                  "show-size": "",
+                  "small-chips": "",
+                },
+                on: { change: _vm.selectFile },
+              }),
+              _vm._v(" "),
               _c(
-                "v-col",
-                { attrs: { sm: "12", md: "4", "offset-md": "8" } },
-                [
-                  _c("v-file-input", {
-                    attrs: {
-                      accept: ".csv",
-                      label: "Escolher arquivo...",
-                      "show-size": "",
-                      "small-chips": "",
-                    },
-                    on: { change: _vm.selectFile },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    {
-                      staticClass: "primary float-right",
-                      attrs: { loading: _vm.uploading },
-                      on: { click: _vm.submitFile },
-                    },
-                    [_vm._v("Enviar")]
-                  ),
-                ],
-                1
+                "v-btn",
+                {
+                  staticClass: "primary float-right",
+                  attrs: { loading: _vm.uploading },
+                  on: { click: _vm.submitFile },
+                },
+                [_vm._v("Enviar")]
               ),
             ],
             1
-          )
-        : _vm._e(),
+          ),
+        ],
+        1
+      ),
     ],
     1
   )

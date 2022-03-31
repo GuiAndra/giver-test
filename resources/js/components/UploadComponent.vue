@@ -71,7 +71,7 @@
                 <v-btn color="blue-grey" class="white--text float-right" @click="showInputFile = !showInputFile">Importar</v-btn>
             </v-col>
         </v-row>
-        <v-row v-if="showInputFile">
+        <v-row v-show="showInputFile">
             <v-col sm="12" md="4" offset-md="8">
                 <v-file-input accept=".csv" label="Escolher arquivo..." show-size small-chips @change="selectFile"></v-file-input>
                 <v-btn class="primary float-right" @click="submitFile" :loading="uploading">Enviar</v-btn>
