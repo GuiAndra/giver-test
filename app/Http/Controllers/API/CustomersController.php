@@ -42,4 +42,19 @@ class CustomersController extends Controller
 
         $this->customerService->importCSV($request->file, $force);
     }
+
+    public function dashboard()
+    {
+        $total = $this->customer->count();
+        $invalidLastName = $this->customer->whereNull('last_name')->count();
+        $invalidEmail = $this->customer->whereNull('email')->count();
+        $invalidGender = $this->customer->whereNull('gender')->count();
+
+        return [
+            'total' => $total,
+            'invalidLastName' => $invalidLastName,
+            'invalidEmail' => $invalidEmail,
+            'invalidGender' => $invalidGender,
+        ];
+    }
 }

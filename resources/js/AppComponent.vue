@@ -8,7 +8,12 @@
                             <v-img src="/images/giver.svg" height="80" contain></v-img>
                         </v-col>
                     </v-row>
-                    <dashboard-component></dashboard-component>
+                    <v-row>
+                        <v-col>
+                            <h2>Clientes</h2>
+                        </v-col>
+                    </v-row>
+                    <dashboard-component ref="dashboardComponent"></dashboard-component>
                     <upload-component @uploadedCSV="refreshData()"></upload-component>
                     <table-component ref="tableComponent"></table-component>
                 </v-container>
@@ -31,6 +36,7 @@
         methods: {
             refreshData() {
                 this.$refs.tableComponent.getCustomers()
+                this.$refs.dashboardComponent.getDashboardData()
             }
         }
     }

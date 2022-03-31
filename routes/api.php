@@ -24,5 +24,6 @@ Route::controller(CustomersController::class)
     ->name('customers.')
     ->group(function() {
         Route::get('/', 'index')->name('index');
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::post('/import', 'import')->name('import');
     });
