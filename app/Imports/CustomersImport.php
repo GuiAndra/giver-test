@@ -29,9 +29,9 @@ class CustomersImport implements ToModel, WithHeadingRow, WithChunkReading, With
         return new Customer([
             'first_name' => $row['first_name'],
             'last_name' => $row['last_name'],
-            'email' => filter_var($row['email'], FILTER_VALIDATE_EMAIL) ?: null,
+            'email' => $row['email'],
             'gender' => $row['gender'],
-            'ip_address' => filter_var($row['ip_address'], FILTER_VALIDATE_IP) ?: null,
+            'ip_address' => $row['ip_address'],
             'company' => $row['company'],
             'city' => $row['city'],
             'title' => $row['title'],
